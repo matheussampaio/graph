@@ -1,62 +1,31 @@
 <template>
-  <network
-    class="network"
-    :nodes="nodes"
-    :edges="edges"
-    :options="options"
-    >
+  <network :nodes="nodes" :links="links">
   </network>
 </template>
 
 <script>
-import { Network } from 'vue-visjs'
+import Network from './components/Network.vue'
 
 export default {
-  name: 'App',
   components: {
     Network
   },
   data() {
     return {
-      id: 0,
-      label: '',
-      from: 0,
-      to: 0,
       nodes: [
+        { id: "12345" },
+        { id: "67890" },
+        { id: "45678" }
       ],
-      edges: [
+      links: [
+        { source: "12345", target: "67890" },
+        { source: "67890", target: "45678" },
+        { source: "45678", target: "12345" }
       ]
-    }
-  },
-  methods: {
-    addNode() {
-      this.nodes.push({ id: this.id, label: this.label })
-    },
-    addEdge() {
-      this.edges.push({ from: this.from, to: this.to })
-    }
-  },
-  computed: {
-    options() {
-      return {
-        autoResize: true,
-        height: '100%',
-        width: '100%',
-        manipulation: {
-          enabled: true
-        }
-      }
     }
   }
 }
 </script>
 
 <style>
-#app {
-  height: 100vh;
-}
-
-.network {
-  height: 100vh;
-}
 </style>
