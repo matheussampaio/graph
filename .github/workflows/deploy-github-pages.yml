@@ -30,5 +30,6 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: dist
+          fqdn: matheus.sampaio.us/graph
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
